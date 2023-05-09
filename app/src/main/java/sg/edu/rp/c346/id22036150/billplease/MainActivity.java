@@ -54,24 +54,32 @@ public class MainActivity extends AppCompatActivity {
                     // Add your code for the action
 
                     double origBill = Double.parseDouble(amtInput.getText().toString());
-                    double finalBill;
+                    double finalBill = 0.0;
 
 
-                    if ((!SVC.isChecked()) && (!GST.isChecked())) {
-                        finalBill = origBill;
-                    } else if ((SVC.isChecked()) && (!GST.isChecked())) {
-                        finalBill = origBill * 1.1;
-                    } else if ((!SVC.isChecked()) && (GST.isChecked())) {
-                        finalBill = origBill * 1.08;
+                    if(origBill > 0) {
+                        if ((!SVC.isChecked()) && (!GST.isChecked())) {
+                            finalBill = origBill;
+                        } else if ((SVC.isChecked()) && (!GST.isChecked())) {
+                            finalBill = origBill * 1.1;
+                        } else if ((!SVC.isChecked()) && (GST.isChecked())) {
+                            finalBill = origBill * 1.08;
+                        } else {
+                            finalBill = origBill * 1.18;
+                        }
                     } else {
-                        finalBill = origBill * 1.18;
+                        amtInput.setError("Please enter a valid amount.");
                     }
 
-
-                    if ((discInput.getText().toString().trim().length()) != 0) {
-                        discount = Double.parseDouble(discInput.getText().toString());
-                        finalBill *= (1 - discount / 100);
+                    if(Double.parseDouble(discInput.getText().toString()) <= 0) {
+                        discInput.setError("Please enter a valid number.");
+                    } else {
+                        if ((discInput.getText().toString().trim().length()) != 0) {
+                            discount = Double.parseDouble(discInput.getText().toString());
+                            finalBill *= (1 - discount / 100);
+                        }
                     }
+
 
 
                     totalBill.setText("Total Bill: $" + String.format("%.2f", finalBill));
@@ -82,10 +90,14 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     int noOfPax = Integer.parseInt(paxInput.getText().toString());
-                    if (noOfPax != 1) {
-                        payEach.setText("Each Pays: $" + String.format("%.2f", (finalBill / noOfPax)) + paymentMode);
+                    if(noOfPax > 0) {
+                        if (noOfPax != 1) {
+                            payEach.setText("Each Pays: $" + String.format("%.2f", (finalBill / noOfPax)) + paymentMode);
+                        } else {
+                            payEach.setText("Each Pays: $" + finalBill + paymentMode);
+                        }
                     } else {
-                        payEach.setText("Each Pays: $" + finalBill + paymentMode);
+                        paxInput.setError("Please enter a valid no. of pax");
                     }
 
 
