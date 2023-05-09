@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/amtText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:text="@string/amount" />
+
+    <EditText
+        android:id="@+id/amtInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginEnd="10dip"
+        android:layout_marginRight="10dip"
+        android:ems="10"
+        android:hint="@string/amtInput"
+        android:inputType="number"
+        tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/paxText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:text="@string/paxNo"
+        tools:text="Num of Pax" />
+
+    <EditText
+        android:id="@+id/paxInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginEnd="10dip"
+        android:layout_marginRight="10dip"
+        android:ems="10"
+        android:hint="@string/paxNoInput"
+        android:inputType="number"
+        tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/calcSVC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:textOff="@string/no_svc"
+            android:textOn="@string/svc" />
+
+        <ToggleButton
+            android:id="@+id/calcGST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:checked="false"
+            android:textOff="@string/no_gst"
+            android:textOn="@string/gst" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/discText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:text="@string/discount" />
+
+    <EditText
+        android:id="@+id/discInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginEnd="10dip"
+        android:layout_marginRight="10dip"
+        android:ems="10"
+        android:hint="@string/discInput"
+        android:inputType="number"
+        tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck" />
+
+    <RadioGroup
+        android:id="@+id/payRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dip"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/paymentCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/cash"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/paymentPayNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/paynow"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dip"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/splitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:text="@string/split"
+            android:textColor="#000000"
+            app:backgroundTint="#D5D6D6"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:text="@string/reset"
+            android:textColor="#000000"
+            app:backgroundTint="#D5D6D6"
+            app:strokeColor="#FFFFFF"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/totalBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="0dip"
+        android:text="@string/total_bill"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/eachPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:layout_marginLeft="10dip"
+        android:text="@string/each_pays"
+        android:textSize="25sp" />
+
+</LinearLayout>
